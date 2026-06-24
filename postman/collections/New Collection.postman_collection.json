@@ -18,7 +18,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"name\": \"Rahul\",\n    \"phone\": \"9876543210\",\n    \"email\": \"rahul@example.com\",\n    \"password\": \"password123\",\n    \"confirmPassword\": \"password123\"\n}",
+          "raw": "{\n    \"name\": \"Kira\",\n    \"phone\": \"9876543212\",\n    \"email\": \"kira@example.com\",\n    \"password\": \"password123\",\n    \"confirmPassword\": \"password123\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -51,7 +51,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"phone\": \"9876543210\",\n    \"password\": \"newpass123\"\n}"
+          "raw": "{\n    \"name\": \"Kira\",\n    \"phone\": \"9876543212\",\n    \"email\": \"kira@example.com\",\n    \"password\": \"password123\",\n    \"confirmPassword\": \"password123\"\n}"
         },
         "url": {
           "raw": "{{base_url}}/auth/login",
@@ -123,6 +123,34 @@
       "response": []
     },
     {
+      "name": "Resend OTP",
+      "id": "8c7e9480-c040-4532-9cac-8b98548425df",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"phone\": \"9876543210\",\r\n    \"id\":\"1\"\r\n    \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/resend-otp",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "resend-otp"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "Reset Password",
       "id": "8b572ff9-3874-4d92-97df-420cdc805d26",
       "request": {
@@ -149,6 +177,439 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Add Guards",
+      "id": "21757d05-c853-461a-91d5-fd5fcfa4cdb1",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicGhvbmUiOiI5ODc2NTQzMjEyIiwiaWF0IjoxNzcwMTAxNjQxLCJleHAiOjE3NzAxODgwNDF9.ut5g8xUYwmDoWAd7TD0dCcfj6zWJZ9eprir0yFH5FQk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"phone\": \"9876543210\",\r\n    \"email\": \"john.doe@example.com\",\r\n    \"current_address\": \"123 Main St\",\r\n    \"permanent_address\": \"456 Home Ave\",\r\n    \"emergency_address\": \"789 Help Ln\",\r\n    \"duty_type_id\": 1,\r\n    \"duty_start_time\": \"09:00\",\r\n    \"duty_end_time\": \"17:00\",\r\n    \"working_location\": \"Main Entrance\",\r\n    \"work_experience\": \"2 years\",\r\n    \"reference_by\": \"Manager Smith\",\r\n    \"emergency_contact_name_1\": \"Jane Doe\",\r\n    \"emergency_contact_phone_1\": \"9876543211\",\r\n    \"emergency_contact_name_2\": \"Bob Doe\",\r\n    \"emergency_contact_phone_2\": \"9876543212\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/guards",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "guards"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View Duty Types",
+      "id": "8bf1dc85-23d2-453c-bab8-f2e5bc96cf46",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/duty-types",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "duty-types"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Duty Types",
+      "id": "d7b1c7b2-5cfd-4103-82c2-974ce4cb2856",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Afternoon\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/duty-types",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "duty-types"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View Guards",
+      "id": "642134c8-62db-4d41-a3ac-e520bb07148c",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Gaurd Details",
+      "id": "b2f77cd9-c0b3-4e13-a694-7249440b1cb7",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicGhvbmUiOiI5ODc2NTQzMjEwIiwiaWF0IjoxNzcwMTE5NTI4LCJleHAiOjE3NzAyMDU5Mjh9.4T_KM6GyX9ejIbTbkTZwxCUWNzcOB3MRI2EG9Wnj6eo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/guards/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "guards",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Change Password",
+      "id": "60cdfdaf-4b63-4a32-ade8-58ffc3212be2",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInBob25lIjoiOTg3Njg4ODg5NiIsImlhdCI6MTc3MDE4ODQwMiwiZXhwIjoxNzcwMjc0ODAyfQ.yQe2IM-bY2bq5ta1LFIoie7TwSIiWtKGDIALadVW30o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"old_password\":\"password123\",\r\n    \"new_password\":\"newpass123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/change-password",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "change-password"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Edit superviser profile",
+      "id": "3f6034eb-5cd6-4457-ad1e-6ec82cf2664e",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInBob25lIjoiOTg3Njg4ODg5NiIsImlhdCI6MTc3MDE4ODQwMiwiZXhwIjoxNzcwMjc0ODAyfQ.yQe2IM-bY2bq5ta1LFIoie7TwSIiWtKGDIALadVW30o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\":\"Rama\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/profile",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "profile"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Edir guard details",
+      "id": "1541f70c-833b-41ab-af9c-f85fd641e123",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/guards/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "guards",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get notifications",
+      "id": "45698528-a2e3-404c-be90-8c9fe589605b",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Read Notifications",
+      "id": "de5dae3b-dc58-430c-a5bd-181850ed6c17",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInBob25lIjoiOTg3Njg4ODg5NiIsImlhdCI6MTc3MDE5NDYwMSwiZXhwIjoxNzcwMjgxMDAxfQ.oN0uh-ELgNk8GOGJJnxUEkHPhQcGQVZ87MpQUqJQIMg",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "id",
+              "value": "3",
+              "type": "text",
+              "uuid": "c4d1354f-f16b-4518-895e-5f42852eebf6"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/notifications/3/read",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "notifications",
+            "3",
+            "read"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Notifications",
+      "id": "a677dff4-af99-41f8-944a-5b3eebb35864",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInBob25lIjoiOTg3Njg4ODg5NiIsImlhdCI6MTc3MDE5NDYwMSwiZXhwIjoxNzcwMjgxMDAxfQ.oN0uh-ELgNk8GOGJJnxUEkHPhQcGQVZ87MpQUqJQIMg",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/notifications/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "notifications",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Admins",
+      "id": "34e982d5-7edd-42e3-88c0-99eec9e05788",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Admin\",\r\n    \"email\": \"new@admin.com\",\r\n    \"password\": \"securepass\",\r\n    \"phone\": \"9998887776\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/admin/create-admin",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "admin",
+            "create-admin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "admin login",
+      "id": "f15cc3f6-1667-4361-a0d5-c88de9fc1084",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"admin\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/admin/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "admin",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all supervisers",
+      "id": "925a447c-32ee-40a8-8393-65f560523760",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MDI3ODUwOCwiZXhwIjoxNzcwMzY0OTA4fQ.aIUh9X_Hg88BM3Avd06M9gkfKRR3yZiypnKqlOAFnTo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/admin/supervisors",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "admin",
+            "supervisors"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "profile retrieval",
+      "id": "bd20ec98-fc6f-49f6-b047-cc5edc68fc54",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "id": "1a74e855-5c7e-4263-9cd3-7ca45fd1d88d",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicGhvbmUiOiI5ODc2ODg4ODk2Iiwicm9sZSI6InN1cGVydmlzb3IiLCJpYXQiOjE3NzA5Nzk1ODUsImV4cCI6MTc3MTA2NTk4NX0.Vp6ZJV37l64-EmVmmihScXO7fU6DxSWJE72e8Shg7yc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/guards/34",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "guards",
+            "34"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "14cd5a9f-3575-489a-bf92-c7410513ccd6",
+      "key": "base_url",
+      "value": "https://appbackend-production-b66a.up.railway.app/"
     }
   ]
 }

@@ -4,3 +4,7 @@ uploads
 .DS_Store
 coverage
 dist
+
+*.log
+npm-debug.log
+yarn-error.log

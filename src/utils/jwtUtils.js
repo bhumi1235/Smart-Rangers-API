@@ -3,7 +3,8 @@ import "dotenv/config";
 
 const SECRET = process.env.JWT_SECRET;
 
-export const generateToken = (payload, expiresIn = "1d") => {
+export const generateToken = (payload, expiresIn = "90d") => {
+    // Payload should include { id, phone, role }
     return jwt.sign(payload, SECRET, { expiresIn });
 };
 

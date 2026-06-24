@@ -1,0 +1,1237 @@
+{
+  "info": {
+    "_postman_id": "9b6be093-b9b3-4199-9c3d-f43b4a36a612",
+    "name": "REST API basics: CRUD, test & variable",
+    "description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" width=\"2162\" height=\"1530\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "studentappapi",
+      "item": [
+        {
+          "name": "auth",
+          "item": [
+            {
+              "name": "student",
+              "id": "9d221d9e-e138-44a2-a531-0a56a142c235",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Rahul Sharma\",\r\n  \"email\": \"rahul@gmail.com\",\r\n  \"mobile\": \"9876543210\",\r\n  \"password\": \"123456\",\r\n  \"country\": \"India\",\r\n\r\n  \"parentName\": \"Amit Sharma\",\r\n  \"parentEmail\": \"amit@gmail.com\",\r\n  \"parentMobile\": \"9876500000\",\r\n\r\n  \"address\": \"New Delhi, India\",\r\n  \"latitude\": 28.6139,\r\n  \"longitude\": 77.2090,\r\n  \"playerId\": \"onesignal-player-id\",\r\n  \"deviceType\": \"android\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://classplus-iwn1.onrender.com/api/auth/register/student",
+                  "protocol": "https",
+                  "host": [
+                    "classplus-iwn1",
+                    "onrender",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "register",
+                    "student"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "login",
+              "id": "3c617af4-c391-4c38-a212-d769dc7c5e24",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"identifier\": \"anita@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://classplus-iwn1.onrender.com/api/auth/login",
+                  "protocol": "https",
+                  "host": [
+                    "classplus-iwn1",
+                    "onrender",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "verifyopt",
+              "id": "cac30cb2-6b94-4383-adc9-63aed7e495dc",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"identifier\": \"rahul.sharma@gmail.com\",\r\n    \"otp\": \"123456\",\r\n    \"role\": \"student\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://classplus-iwn1.onrender.com/api/auth/verify-otp",
+                  "protocol": "https",
+                  "host": [
+                    "classplus-iwn1",
+                    "onrender",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "verify-otp"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "resend-otp",
+              "id": "f50736e9-44d7-4c00-ab4b-e938bb583428",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"identifier\": \"rahul.sharm3a@gmail.com\",\r\n    \"role\": \"student\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://classplus-iwn1.onrender.com/api/auth/resend-otp",
+                  "protocol": "https",
+                  "host": [
+                    "classplus-iwn1",
+                    "onrender",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "resend-otp"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "forgotpassword",
+              "id": "ac9dbdfa-9eba-4b6a-a2e4-81de51295c6f",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"identifier\": \"rahul.sharma@gmail.com\",\r\n    \"role\": \"student\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://classplus-9siz.onrender.com/api/auth/forgot-password",
+                  "protocol": "https",
+                  "host": [
+                    "classplus-9siz",
+                    "onrender",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "forgot-password"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "verify-forgot-opt",
+              "id": "e177507f-d62a-46bd-8489-69aef11e7731",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"identifier\": \"rahul.sharma@gmail.com\",\r\n    \"otp\": \"123456\",\r\n    \"role\": \"student\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://classplus-9siz.onrender.com/api/auth/verify-forgot-password-otp",
+                  "protocol": "https",
+                  "host": [
+                    "classplus-9siz",
+                    "onrender",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "verify-forgot-password-otp"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "reset-password",
+              "id": "01b94ff9-9a01-43f8-9dd6-4a9c6d6fcda3",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"identifier\": \"rahul.sharma@gmail.com\",\r\n    \"role\": \"student\",\r\n    \"newPassword\": \"Rahul@456\"\r\n}'",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://classplus-9siz.onrender.com/api/auth/reset-password",
+                  "protocol": "https",
+                  "host": [
+                    "classplus-9siz",
+                    "onrender",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "reset-password"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "editstudentproifle",
+              "id": "d85ac3d9-a341-4460-a5ae-fad5a77629cc",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "profileImage",
+                      "type": "file",
+                      "uuid": "fec3ee51-fab6-48cb-9826-6f856797a326",
+                      "src": [
+                        "/C:/Users/DellP/Downloads/claass1.jpg"
+                      ]
+                    },
+                    {
+                      "key": "address",
+                      "value": "asdfas",
+                      "type": "text",
+                      "uuid": "6038fd21-b61b-4e49-9582-9572eb70c6dc"
+                    },
+                    {
+                      "key": "country",
+                      "value": "3432",
+                      "type": "text",
+                      "uuid": "a7331d2d-dbf9-4abb-bee8-b32ced1dd81c"
+                    },
+                    {
+                      "key": "name",
+                      "value": "asdf",
+                      "type": "text",
+                      "uuid": "9110d035-a10f-4f93-b64d-b4837294ada5"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/students/nnaala2026020607543858",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "students",
+                    "nnaala2026020607543858"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "gitprofile",
+              "id": "ed23907a-ddbf-40c4-8c70-99b74d6d7993",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Sujeet Kumar\",\r\n  \"email\": \"sujeet@gmail.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"subject\": \"Regarding Course Details\",\r\n  \"message\": \"I want more information about your courses.\"\r\n}\r\n"
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/students/nnaala2026020607543858",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "students",
+                    "nnaala2026020607543858"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "84cc28fb-707a-412c-9821-f416f7b72799"
+        },
+        {
+          "name": "homepage",
+          "item": [
+            {
+              "name": "HomeData",
+              "id": "e5179093-b32d-4656-86c5-7d5f6376549f",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGUiOiJzdXBlcmFkbWluIiwic3BlY2lmaWNJZCI6MSwiaWF0IjoxNzcwMDk3MTczLCJleHAiOjE3NzAxODM1NzN9.5jX0QOYwPEW8g6wzYbK3xpm2Vvr8-Ou8pfVKJn480ag",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:5000/api/android/home/bhola2026020305231321",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "android",
+                    "home",
+                    "bhola2026020305231321"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "06b1301b-5ba1-4ba3-a0b8-43e12582bf31"
+        },
+        {
+          "name": "doubt",
+          "item": [
+            {
+              "name": "doubt create",
+              "id": "fe6005fa-ee1b-406a-bcf3-03a6ade60341",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"studentId\": \"bhola2026020305231321\",\r\n  \"courseCode\": \"DBM20260100000001\",\r\n  \"doubtTitle\": \"Confusion in Chapter 3\",\r\n  \"doubtText\": \"I am not understanding the derivation part in topic 3.\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/doubts",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "doubts"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get doubt",
+              "id": "86136e7e-7025-428a-b782-ca4b11e01aca",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/doubts/student/sunny2026021305463572",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "doubts",
+                    "student",
+                    "sunny2026021305463572"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "f8df5c85-b5d2-46ad-a395-78a9c1e0eb5a"
+        },
+        {
+          "name": "test",
+          "item": [
+            {
+              "name": "gettestsbystudent",
+              "id": "f78e4f0d-8c80-44c2-b1c3-c771cb579ed8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJyb2xlIjoic3R1ZGVudCIsInNwZWNpZmljSWQiOiJiaG9sYTIwMjYwMjAzMDUyMzEzMjEiLCJpYXQiOjE3NzEzMDYwNzMsImV4cCI6MTc3MTM5MjQ3M30.rQACd9QhqPyokSEOwepUADoYQb1DG5Oc59xgiJUSqIw",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"courseCode\": \"SHA20260100000001\",\r\n  \"teacherId\": 1,\r\n  \"title\": \"Mid Term Test\",\r\n  \"description\": \"Chapter 1 to 3 Test\",\r\n  \"questions\": [\r\n    {\r\n      \"questionId\": 1,\r\n      \"questionText\": \"What is JavaScript?\",\r\n      \"options\": [\"Language\", \"Database\", \"Server\", \"Browser\"],\r\n      \"correctAnswer\": \"Language\",\r\n      \"marks\": 5\r\n    },\r\n    {\r\n      \"questionId\": 2,\r\n      \"questionText\": \"What is React?\",\r\n      \"options\": [\"Library\", \"Framework\", \"Database\", \"OS\"],\r\n      \"correctAnswer\": \"Library\",\r\n      \"marks\": 5\r\n    }\r\n  ],\r\n  \"totalMarks\": 10,\r\n  \"durationMinutes\": 60,\r\n  \"startTime\": \"2026-02-20T10:00:00\",\r\n  \"endTime\": \"2026-02-20T11:00:00\",\r\n  \"maxAttempts\": 1,\r\n  \"isPublished\": true\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/tests/student/bhola2026020305231321",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "tests",
+                    "student",
+                    "bhola2026020305231321"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "submittestbystudent",
+              "id": "60d4a5c9-ffbf-4d2b-959c-1adb15c2e483",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJyb2xlIjoic3R1ZGVudCIsInNwZWNpZmljSWQiOiJiaG9sYTIwMjYwMjAzMDUyMzEzMjEiLCJpYXQiOjE3NzEzMjEzNzcsImV4cCI6MTc3MTQwNzc3N30.jH1yIQdGQ4Y-vqZXJbSmftzNdrnTgepbRVOyJPBmRJ0",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"submissionId\": 11,\r\n  \"answers\": [\r\n    {\r\n      \"questionId\": 5,\r\n      \"selectedAnswer\": \"Process by which plants convert light energy into chemical energy.\"\r\n    },\r\n    {\r\n      \"questionId\": 4,\r\n      \"selectedAnswer\": \"C\"\r\n    },\r\n    {\r\n      \"questionId\": 1,\r\n      \"selectedAnswer\": \"C\"\r\n    },\r\n    {\r\n      \"questionId\": 6,\r\n      \"selectedAnswer\": \"optionA\"\r\n    }\r\n  ]\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/tests/submit",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "tests",
+                    "submit"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "94327c1e-bbb7-4ee5-a95a-64b9273999f0"
+        },
+        {
+          "name": "courses",
+          "item": [
+            {
+              "name": "allcouse",
+              "id": "5b99d4f0-e70c-419f-9932-8d2ce4a92c10",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://51.20.53.47:5000/api/android/coursepagedata/ramus2026013014365210",
+                  "protocol": "http",
+                  "host": [
+                    "51",
+                    "20",
+                    "53",
+                    "47"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "android",
+                    "coursepagedata",
+                    "ramus2026013014365210"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getcoursebysubject",
+              "id": "12a89996-9412-403a-b28f-954dbc7f22b5",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJyb2xlIjoic3R1ZGVudCIsInNwZWNpZmljSWQiOiJiaG9sYTIwMjYwMjAzMDUyMzEzMjEiLCJpYXQiOjE3NzA4NzMxNjYsImV4cCI6MTc3MDk1OTU2Nn0.itOp0U2X3eGBojnrxG7qvTrEOH8Js1rBLVYY9qyq2nU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/android/coursepagedata/bhola2026020305231321/subject/SOC01",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "android",
+                    "coursepagedata",
+                    "bhola2026020305231321",
+                    "subject",
+                    "SOC01"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "14a6ae21-d915-45df-80a6-bf8cf2f19696"
+        },
+        {
+          "name": "livesesion",
+          "item": [
+            {
+              "name": "live seesion",
+              "id": "da59e22b-defc-4f1d-9e83-df1e8389049a",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJyb2xlIjoic3R1ZGVudCIsInNwZWNpZmljSWQiOiJiaG9sYTIwMjYwMjAzMDUyMzEzMjEiLCJpYXQiOjE3NzA4OTM5NjAsImV4cCI6MTc3MDk4MDM2MH0.cYGWSin_5S7gkIdunaOoh-KKiV6mmBg7yFgOpLkGym0",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"courseCode\": \"SAD20260200000001\",\r\n    \"studentId\": \"bhola2026020305231321\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/livesessions/join",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "livesessions",
+                    "join"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getallsessionbystudent",
+              "id": "b1ad0cb7-0a3d-406e-b603-d9001fdec92b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJyb2xlIjoic3R1ZGVudCIsInNwZWNpZmljSWQiOiJiaG9sYTIwMjYwMjAzMDUyMzEzMjEiLCJpYXQiOjE3NzAzNzE1NjQsImV4cCI6MTc3MDQ1Nzk2NH0.q5qL520VxKCv--815MXulq5-wcolUiR1mVDMgooJEt4",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJyb2xlIjoic3R1ZGVudCIsInNwZWNpZmljSWQiOiJiaG9sYTIwMjYwMjAzMDUyMzEzMjEiLCJpYXQiOjE3NzAzNjc0MzcsImV4cCI6MTc3MDQ1MzgzN30.ajewsx3Oc75k74H8DWhlU4prDBtTYyLavz35cM6Qzec",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/students/getlive-sessions/bhola2026020305231321",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "students",
+                    "getlive-sessions",
+                    "bhola2026020305231321"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "02f44155-9402-47d9-8e78-124c6aa68189"
+        },
+        {
+          "name": "enrollment",
+          "item": [
+            {
+              "name": "create enrollment",
+              "id": "43b35809-a4ac-4c19-be8d-b457171965cb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"studentId\": \"ramus2026013014365210\",\r\n  \"courseCode\": \"DBM20260100000001\",\r\n  \"remarks\": \"Enrolled via online payment\",\r\n  \"paymentStatus\": \"PAID\",\r\n  \"transactionNumber\": \"TXN987654321\",\r\n  \"orderId\": \"ORD123456\",\r\n  \"paymentMethod\": \"UPI\",\r\n  \"amountPaid\": 4999,\r\n  \"currency\": \"INR\",\r\n  \"paymentDate\": \"2026-01-31\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/enrollments",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "enrollments"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "14912ca8-c3f1-4efa-840e-638207967400"
+        },
+        {
+          "name": "assignement",
+          "item": [
+            {
+              "name": "getassignmentbystudent",
+              "id": "e2f99bff-4e7c-4188-bb23-63d00ae53dbe",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJyb2xlIjoic3R1ZGVudCIsInNwZWNpZmljSWQiOiJiaG9sYTIwMjYwMjAzMDUyMzEzMjEiLCJpYXQiOjE3NzA5ODQxMzQsImV4cCI6MTc3MTA3MDUzNH0.atqSblrJGN_CC-zdHrfy7J3f9--3OC1pSZTpp-ZfNIA",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "profileImage",
+                      "type": "file",
+                      "uuid": "fec3ee51-fab6-48cb-9826-6f856797a326",
+                      "src": [
+                        "/C:/Users/DellP/Downloads/claass1.jpg"
+                      ]
+                    },
+                    {
+                      "key": "address",
+                      "value": "asdfas",
+                      "type": "text",
+                      "uuid": "6038fd21-b61b-4e49-9582-9572eb70c6dc"
+                    },
+                    {
+                      "key": "country",
+                      "value": "3432",
+                      "type": "text",
+                      "uuid": "a7331d2d-dbf9-4abb-bee8-b32ced1dd81c"
+                    },
+                    {
+                      "key": "name",
+                      "value": "asdf",
+                      "type": "text",
+                      "uuid": "9110d035-a10f-4f93-b64d-b4837294ada5"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/assignments/student/bhola2026020305231321",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "assignments",
+                    "student",
+                    "bhola2026020305231321"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "submitassignementbystudent",
+              "id": "313adda7-4288-4bea-b822-8f965110f018",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJyb2xlIjoic3R1ZGVudCIsInNwZWNpZmljSWQiOiJiaG9sYTIwMjYwMjAzMDUyMzEzMjEiLCJpYXQiOjE3NzEwNjk1NzUsImV4cCI6MTc3MTE1NTk3NX0.N2GwgTCXC8zKkC7vGZAaev1YtK2G1W0fgcNj5jr8jv4",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "file",
+                      "type": "file",
+                      "uuid": "fec3ee51-fab6-48cb-9826-6f856797a326",
+                      "src": [
+                        "/C:/Users/DellP/Downloads/claass1.jpg"
+                      ]
+                    },
+                    {
+                      "key": "assignmentId",
+                      "value": "80447697-336c-4872-b204-acace4812183",
+                      "type": "text",
+                      "uuid": "6038fd21-b61b-4e49-9582-9572eb70c6dc"
+                    },
+                    {
+                      "key": "studentId",
+                      "value": "bhola2026020305231321",
+                      "type": "text",
+                      "uuid": "a7331d2d-dbf9-4abb-bee8-b32ced1dd81c"
+                    },
+                    {
+                      "key": "submissionText",
+                      "value": "asdf",
+                      "type": "text",
+                      "uuid": "9110d035-a10f-4f93-b64d-b4837294ada5"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/assignments/students/submission",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "assignments",
+                    "students",
+                    "submission"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "489381c5-ca90-4574-bb03-15da354af0bf"
+        },
+        {
+          "name": "contentgetlikeprivacy",
+          "item": [
+            {
+              "name": "getallcontent",
+              "id": "0956c55f-a524-4e33-8ffd-fa20942136d0",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/content",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "content"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getcontentbyid",
+              "id": "fb290592-819b-42c9-9936-72d21e418118",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "a5489aad-b291-4a1d-a233-68365d35e7fc"
+        },
+        {
+          "name": "contactus",
+          "id": "8d4cdad1-5271-47ae-8f51-ec38c75b271d",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Sujeet Kumar\",\r\n  \"email\": \"sujeet@gmail.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"subject\": \"Regarding Course Details\",\r\n  \"message\": \"I want more information about your courses.\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/contactus",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contactus"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getnotes",
+          "id": "1deb79c8-e213-459a-8e37-5d313ec45e43",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJyb2xlIjoic3R1ZGVudCIsInNwZWNpZmljSWQiOiJiaG9sYTIwMjYwMjAzMDUyMzEzMjEiLCJpYXQiOjE3NzA4ODk2NjYsImV4cCI6MTc3MDk3NjA2Nn0.8S-LlL-5dg6MEuMZSL6f7534VjKEonm68aJytEHXstA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/android/coursepagedata/bhola2026020305231321/SAD20260200000001/content?contentType=NOTES",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "android",
+                "coursepagedata",
+                "bhola2026020305231321",
+                "SAD20260200000001",
+                "content"
+              ],
+              "query": [
+                {
+                  "key": "contentType",
+                  "value": "NOTES"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "73e5832f-3bdc-4382-8f33-53d945a87b0c"
+    },
+    {
+      "name": "teacher",
+      "id": "5ff7a0d5-4113-44ef-8684-401883d79bd1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Anita Verma\",\r\n  \"email\": \"anita@gmail.com\",\r\n  \"mobile\": \"9876543210\",\r\n  \"password\": \"123456\",\r\n  \"qualification\": \"M.Sc Mathematics\",\r\n  \"country\": \"India\",\r\n\r\n  \"address\": \"Pune, Maharashtra\",\r\n  \"latitude\": 18.5204,\r\n  \"longitude\": 73.8567,\r\n  \"playerId\": \"onesignal-player-id\",\r\n  \"deviceType\": \"android\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://classplus-iwn1.onrender.com/api/auth/register/teacher",
+          "protocol": "https",
+          "host": [
+            "classplus-iwn1",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register",
+            "teacher"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "parent",
+      "id": "e403d2d4-cf7a-4ac1-bc47-c1056c3d607e",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Robert Brown\",\r\n    \"email\": \"robert.brown@gmail.com\",\r\n    \"mobile\": \"9876505678\",\r\n    \"password\": \"Robert@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://classplus-9siz.onrender.com/api/auth/register/parent",
+          "protocol": "https",
+          "host": [
+            "classplus-9siz",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register",
+            "parent"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "coursespecificid",
+      "id": "a1e6002e-6b12-433a-9695-07884cc5868a",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/courses/DBM20260100000001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "courses",
+            "DBM20260100000001"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "enrollmentgetbyid",
+      "id": "66ce29ac-1a1c-434c-b525-b6b5c6033e98",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/enrollments/ENR202601310001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "enrollments",
+            "ENR202601310001"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "superadmin",
+      "id": "e1cf9bd0-e524-475e-aad2-dec3ed7e4d49",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register/superadmin",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "register",
+            "superadmin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getcoursebysubjectcoursesbehalf",
+      "id": "c326f0e1-3fae-4eca-ad9d-da996d5b89ec",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/courses",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "courses"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "parentAllData",
+      "id": "8f1ee0dc-e919-406a-b947-66358392db2d",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjU0LCJyb2xlIjoic3R1ZGVudCIsInNwZWNpZmljSWQiOiJiaG9sYTIwMjYwMjEyMTgwNjUzNjMiLCJpYXQiOjE3NzEzOTE0MjksImV4cCI6MTc3MTQ3NzgyOX0.KUPgzsnZx3j9dbYvRspq-bLTrWrUJKYlq9InH7ylnIg",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/parents/students/shankar2026020305231395",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "parents",
+            "students",
+            "shankar2026020305231395"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "bd7fee95-77a9-489d-9f1d-d65e409f21cb",
+      "key": "id",
+      "value": "1"
+    },
+    {
+      "id": "4f5ac0f7-ba3b-4d15-8102-1ec3afc5e987",
+      "key": "base_url",
+      "value": "https://template.postman-echo.com"
+    }
+  ]
+}
